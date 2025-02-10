@@ -1,7 +1,10 @@
 from flask import Flask, redirect, request
 from time import sleep
+import config
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder=config.MYAPP_CONFIG["static_directory"],
+            template_folder=config.MYAPP_CONFIG["template_directory"])
 
 @app.route('/')
 def hello():
@@ -19,5 +22,5 @@ def redir(delay=3):
     except Exception as e:
         print(e)
     sleep(delay)    
-    return redirect('https://www.google.com', code=302)
+    return redirect('/static/html/heavyone.html', code=302)
 
