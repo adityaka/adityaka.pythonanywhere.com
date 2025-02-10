@@ -8,9 +8,16 @@ def hello():
     # dumb comment
     return 'Site under construction'
 
-@app.route('/redirect')
 @app.route('/redirect/<delay>')
-def redir(delay=1):
+@app.route('/redirect')
+def redir(delay=3):
+    try:
+        temp_delay=int(delay)
+        delay = temp_delay
+    except TypeError as te:
+        print(te)
+    except Exception as e:
+        print(e)
     sleep(delay)    
     return redirect('https://www.google.com', code=302)
 
