@@ -1,7 +1,7 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, request
+from time import sleep
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def hello():
@@ -9,6 +9,8 @@ def hello():
     return 'Site under construction'
 
 @app.route('/redirect')
-def redirect():
-    return redirect('https://wwww.google.com')
+@app.route('/redirect/<delay>')
+def redir(delay=1):
+    sleep(delay)    
+    return redirect('https://www.google.com', code=302)
 
