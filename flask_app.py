@@ -22,5 +22,5 @@ def redir(delay=3):
     except Exception as e:
         print(e)
     sleep(delay)    
-    return redirect('https://www.google.com', code=302)
+    return redirect('/static/html/heavyone.html', code=302)
 
