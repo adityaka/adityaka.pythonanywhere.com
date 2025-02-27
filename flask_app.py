@@ -4,7 +4,6 @@ import config
 import io
 import git
 
-
 app = Flask(__name__,
             static_folder=config.MYAPP_CONFIG["static_directory"],
             template_folder=config.MYAPP_CONFIG["template_directory"])
